@@ -8,7 +8,7 @@ const { app, server } = require('./lib/socket')
 app.use(
 	cors({
         // origin: "http://localhost:5173",
-        origin: "https://chat-app-frontend-gules-mu.vercel.app",
+        origin: "https://chat-app-frontend-nine-rho.vercel.app",
         credentials: true,
 	})
 );
