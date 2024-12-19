@@ -75,15 +75,14 @@ const login = async (req, res) => {
     }
 };
   
-const logout = (req, res) => {
-    try {
-        res.cookie("jwt", "", { maxAge: 0 });
-        res.status(200).json({ message: "Logged out successfully" });
-    } catch (error) {
-        console.log("Error in logout controller", error.message);
-        res.status(500).json({ message: "Internal Server Error" });
-    }
-};
+const logout = async (req,res) => {
+    res.clearCookie('jwt' , {
+        httpOnly: true,
+        secure: true,
+        sameSite: "None",
+    });
+    res.status(200).json({msg: 'logout successfull'})
+}
 
 const updateProfile = async (req, res) => {
     try {
